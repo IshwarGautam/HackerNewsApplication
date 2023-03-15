@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="navcontent">
+    <a class="navbar-brand">HackerNews</a>
+    <form class="d-flex">
+      <div class="mr-4">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          name="search"
+          placeholder="Search here..."
+          [(ngModel)]="searchTerm"
+        />
+      </div>
+    </form>
+  </div>
+</nav>
+
+<div class="top-stories-container">
+  <app-top-stories [searchTerm]="searchTerm"></app-top-stories>
+</div>
