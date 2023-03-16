@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class StoryCommentsComponent {
   @Input() commentIds: number[] = [];
+  @Input() isFetchComment = false;
 }

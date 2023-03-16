@@ -7,6 +7,9 @@
     <div class="comment-text">{{ this.commentText }}</div>
   </div>
   <div *ngIf="commentInfo.hasOwnProperty('kids')">
-    <app-story-comments [commentIds]="commentInfo?.kids"></app-story-comments>
+    <app-story-comments
+      [commentIds]="commentInfo?.kids"
+      [isFetchComment]="isFetchComment"
+    ></app-story-comments>
   </div>
 </div>

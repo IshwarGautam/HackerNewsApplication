@@ -50,19 +50,19 @@
 
 .comment-toggle {
   display: flex;
-  cursor: pointer;
-  justify-content: end;
-}
-
-.comment-toggle:hover {
-  font-weight: bold;
+  justify-content: flex-end;
 }
 
 .toggle-text {
   padding: 6px;
   color: white;
+  cursor: pointer;
   background: green;
   border-radius: 8px;
+}
+
+.toggle-text:hover {
+  font-weight: bold;
 }
 
 .no-comment {

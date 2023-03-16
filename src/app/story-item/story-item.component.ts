@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, Input } from '@angular/core';
 import { StoryItemService } from './story-item.service';
 
@@ -27,17 +28,25 @@ export class StoryItemComponent {
 
   isHidden = true;
   noOfComment = 0;
+  isFetchComment = false;
 
-  constructor(private storyItemService: StoryItemService) {}
+  constructor(
+    private storyItemService: StoryItemService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit() {
     this.getStory();
   }
 
   getStory() {
+    this.spinner.show();
+
     this.storyItemService.getTopStoryById(this.storyId).subscribe((data) => {
       this.newsData = data as InputData;
-      this.noOfComment = this.newsData?.kids.length;
+      this.noOfComment = this.newsData?.kids?.length || 0;
+
+      this.spinner.hide();
     });
   }
 
@@ -49,5 +58,9 @@ export class StoryItemComponent {
 
   toggleCommentSection() {
     this.isHidden = !this.isHidden;
+
+    if (!this.isHidden) {
+      this.isFetchComment = true;
+    }
   }
 }

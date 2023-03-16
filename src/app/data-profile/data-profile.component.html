@@ -1,7 +1,14 @@
-<div class="name-score d-flex">
-  <div class="name">{{ by }}</div>
-  <div class="score" *ngIf="score !== 0">Vote: {{ score }}</div>
-</div>
-<div class="date">
-  {{ timestamp | date : "medium" }}
+<div class="d-flex profile-container">
+  <div class="avatar">
+    <ngx-avatars facebookId="1508319875"></ngx-avatars>
+  </div>
+  <div class="data-profile">
+    <div class="name-score d-flex">
+      <div class="name">{{ by }}</div>
+      <div class="score" *ngIf="score !== 0">Vote: {{ score }}</div>
+    </div>
+    <div class="date">
+      {{ timestamp | date : "medium" }}
+    </div>
+  </div>
 </div>

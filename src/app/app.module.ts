@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
+import { AvatarModule } from 'ngx-avatars';
+import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { StoryItemComponent } from './story-item/story-item.component';
 import { TopStoriesComponent } from './top-stories/top-stories.component';
 import { DataProfileComponent } from './data-profile/data-profile.component';
@@ -20,7 +23,15 @@ import { StoryCommentsComponent } from './story-comments/story-comments.componen
     StoryCommentComponent,
     DataProfileComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, NgxPaginationModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
+    AvatarModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

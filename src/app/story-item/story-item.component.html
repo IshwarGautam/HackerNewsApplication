@@ -14,8 +14,9 @@
       [score]="newsData?.score!"
       [by]="newsData?.by!"
     ></app-data-profile>
-    <span class="comment-toggle" (click)="toggleCommentSection()">
-      <span class="toggle-text">{{
+
+    <span class="comment-toggle">
+      <span class="toggle-text" (click)="toggleCommentSection()">{{
         isHidden
           ? "View Comment (" + noOfComment + ")"
           : "Hide Comment (" + noOfComment + ")"
@@ -25,7 +26,10 @@
 </div>
 <div class="comments-wrapper" [hidden]="isHidden">
   <div class="comments"><p class="comment-text">Comments</p></div>
-  <app-story-comments [commentIds]="newsData?.kids!"></app-story-comments>
+  <app-story-comments
+    [commentIds]="newsData?.kids!"
+    [isFetchComment]="isFetchComment"
+  ></app-story-comments>
   <div
     class="container-fluid no-comment"
     *ngIf="!newsData?.hasOwnProperty('kids')"
