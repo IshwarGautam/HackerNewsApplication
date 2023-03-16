@@ -36,4 +36,10 @@ export class StoryItemComponent {
       this.newsData = data as InputData;
     });
   }
+
+  openNews(url: string) {
+    if (url) {
+      window.open(url, '_blank');
+    }
+  }
 }

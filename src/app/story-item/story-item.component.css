@@ -2,8 +2,27 @@
   margin: 10px;
   padding: 10px;
   font-size: 16px;
-  font-weight: bold;
   background: rgb(236, 232, 232);
+}
+
+.title {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: left;
+}
+
+.date {
+  text-align: left;
+  font-weight: 350;
+}
+
+.name-score {
+  text-align: left;
+  font-weight: 400;
+}
+
+.score {
+  margin-left: 16px;
 }
 
 .index {

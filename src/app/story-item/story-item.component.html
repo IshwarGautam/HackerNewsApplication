@@ -6,8 +6,15 @@
     {{ index }}
   </div>
   <div class="data-container">
-    <span>
+    <div class="title" (click)="openNews(newsData?.url!)">
       {{ newsData?.title }}
-    </span>
+    </div>
+    <div class="name-score d-flex">
+      <div class="name">by {{ newsData?.by }}</div>
+      <div class="score">Vote: {{ newsData?.score }}</div>
+    </div>
+    <div class="date">
+      {{ newsData?.time | date : "medium" }}
+    </div>
   </div>
 </div>
