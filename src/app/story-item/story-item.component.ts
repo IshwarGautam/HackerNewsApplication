@@ -25,6 +25,9 @@ export class StoryItemComponent {
 
   newsData: InputData | null = null;
 
+  isHidden = true;
+  noOfComment = 0;
+
   constructor(private storyItemService: StoryItemService) {}
 
   ngOnInit() {
@@ -34,6 +37,7 @@ export class StoryItemComponent {
   getStory() {
     this.storyItemService.getTopStoryById(this.storyId).subscribe((data) => {
       this.newsData = data as InputData;
+      this.noOfComment = this.newsData?.kids.length;
     });
   }
 
@@ -41,5 +45,9 @@ export class StoryItemComponent {
     if (url) {
       window.open(url, '_blank');
     }
+  }
+
+  toggleCommentSection() {
+    this.isHidden = !this.isHidden;
   }
 }

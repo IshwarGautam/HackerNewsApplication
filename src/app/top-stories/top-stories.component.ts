@@ -12,7 +12,7 @@ export class TopStoriesComponent {
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
-  tableSizes: (number | string)[] = [5, 10, 15, 20, 'Display All'];
+  tableSizes: number[] = [5, 10, 15, 20, 35, 50];
 
   @Input() term: string = '';
   @Input() searchTerm: string = '';
@@ -36,9 +36,6 @@ export class TopStoriesComponent {
 
   onTableSizeChange(event: any) {
     this.tableSize = event.target.value;
-    if (this.tableSize.toString() === 'Display All') {
-      this.tableSize = this.topStoryIds.length;
-    }
     this.page = 1;
     this.getStoriesIds();
   }

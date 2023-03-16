@@ -1,0 +1,13 @@
+.date {
+  text-align: left;
+  font-weight: 350;
+}
+
+.name-score {
+  text-align: left;
+  font-weight: 400;
+}
+
+.score {
+  margin-left: 16px;
+}

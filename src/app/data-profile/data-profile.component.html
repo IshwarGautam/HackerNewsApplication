@@ -1,0 +1,7 @@
+<div class="name-score d-flex">
+  <div class="name">{{ by }}</div>
+  <div class="score" *ngIf="score !== 0">Vote: {{ score }}</div>
+</div>
+<div class="date">
+  {{ timestamp | date : "medium" }}
+</div>
