@@ -1,11 +1,16 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, Input } from '@angular/core';
 import { StoryCommentService } from './story-comment.service';
-import { convert } from 'html-to-text';
-import { NgxSpinnerService } from 'ngx-spinner';
 
-const options = {
-  preserveNewlines: true,
-};
+interface CommentInfo {
+  by: string;
+  id: number;
+  kids: number[];
+  parent: number;
+  text: string;
+  time: number;
+  type: string;
+}
 
 @Component({
   selector: 'app-story-comment',
@@ -14,9 +19,10 @@ const options = {
 })
 export class StoryCommentComponent {
   @Input() commentId = 0;
-  @Input() isFetchComment: boolean = false;
+  @Input() isFetchComment = false;
+  @Input() parentSpinner: NgxSpinnerService = new NgxSpinnerService();
 
-  commentInfo: any = {};
+  commentInfo: CommentInfo | null = null;
   commentText: string = '';
 
   constructor(
@@ -24,23 +30,17 @@ export class StoryCommentComponent {
     private spinner: NgxSpinnerService
   ) {}
 
-  ngOnInit() {
-    this.fetchComment();
-  }
-
   ngOnChanges() {
     this.fetchComment();
   }
 
   fetchComment() {
     if (this.isFetchComment) {
-      this.spinner.show();
-
       this.storyCommentService.getComment(this.commentId).subscribe((data) => {
-        this.commentInfo = data;
-        this.commentText = convert(this.commentInfo?.text, options);
+        this.commentInfo = data as CommentInfo;
+        this.commentText = this.commentInfo?.text;
 
-        this.spinner.hide();
+        this.parentSpinner.hide();
       });
     }
   }

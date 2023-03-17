@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-story-comments',
@@ -8,4 +9,5 @@ import { Component, Input } from '@angular/core';
 export class StoryCommentsComponent {
   @Input() commentIds: number[] = [];
   @Input() isFetchComment = false;
+  @Input() parentSpinner: NgxSpinnerService = new NgxSpinnerService();
 }

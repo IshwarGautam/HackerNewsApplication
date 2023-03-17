@@ -1,6 +1,6 @@
 .top-stories {
-  margin: 40px auto;
-  width: fit-content;
+  margin: 10px;
+  width: 100%;
 }
 
 .mr-4 {
@@ -8,8 +8,8 @@
 }
 
 .navcontent {
-  display: flex;
   width: 100%;
+  display: flex;
   justify-content: space-around;
 }
 

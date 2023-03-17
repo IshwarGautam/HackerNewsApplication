@@ -14,10 +14,10 @@
     <app-story-item
       [storyId]="id"
       [searchTerm]="searchTerm"
-      [index]="((idx + 1) % (tableSize + 1)) + tableSize * (page - 1)"
+      [index]="setStoryIndex(idx, tableSize, page)"
     ></app-story-item>
   </div>
-  <div class="d-flex footer">
+  <div class="d-flex footer" *ngIf="!searchTerm">
     <div>
       <label class="m-4">News per page: </label>
       <select (change)="onTableSizeChange($event)">
@@ -37,6 +37,7 @@
     </div>
   </div>
 
+  <!-- Added loading spinner -->
   <ngx-spinner
     color="gray"
     size="medium"

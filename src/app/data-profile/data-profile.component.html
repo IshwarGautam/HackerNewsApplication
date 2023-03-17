@@ -3,12 +3,13 @@
     <ngx-avatars facebookId="1508319875"></ngx-avatars>
   </div>
   <div class="data-profile">
-    <div class="name-score d-flex">
-      <div class="name">{{ by }}</div>
-      <div class="score" *ngIf="score !== 0">Vote: {{ score }}</div>
-    </div>
+    <div class="name">{{ by }}</div>
     <div class="date">
       {{ timestamp | date : "medium" }}
+    </div>
+    <div class="type-score d-flex" *ngIf="type && score">
+      <div class="type">Type: {{ type }}</div>
+      <div class="score" *ngIf="score !== 0">Vote: {{ score }}</div>
     </div>
   </div>
 </div>

@@ -10,7 +10,8 @@
 
 .top-stories-container {
   height: 100vh;
-  overflow: auto;
+  padding-bottom: 50px;
+  overflow: hidden auto;
 }
 
 /* width */

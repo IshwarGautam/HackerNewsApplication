@@ -3,7 +3,7 @@
   font-weight: 350;
 }
 
-.name-score {
+.name {
   text-align: left;
   font-weight: 400;
 }
@@ -18,4 +18,9 @@
 
 .profile-container {
   margin: 12px 0;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
 }

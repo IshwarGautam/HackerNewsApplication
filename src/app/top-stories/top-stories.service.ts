@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
+import { topStoriesUrl } from '../app.constants';
 import { HttpClient } from '@angular/common/http';
-
-const baseUrl = 'https://hacker-news.firebaseio.com/v0';
-const topStoriesUrl = `${baseUrl}/topstories.json`;
 
 @Injectable({
   providedIn: 'root',

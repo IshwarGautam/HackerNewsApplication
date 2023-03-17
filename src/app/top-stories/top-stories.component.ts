@@ -8,11 +8,10 @@ import { TopStoriesService } from './top-stories.service';
   styleUrls: ['./top-stories.component.css'],
 })
 export class TopStoriesComponent {
-  topStoryIds: number[] = [];
-  topStories: any = [];
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
+  topStoryIds: number[] = [];
   tableSizes: number[] = [5, 10, 15, 20, 35, 50];
 
   @Input() term: string = '';
@@ -35,6 +34,10 @@ export class TopStoriesComponent {
 
       this.spinner.hide();
     });
+  }
+
+  setStoryIndex(index: number, tableSize: number, page: number) {
+    return ((index + 1) % (tableSize + 1)) + tableSize * (page - 1);
   }
 
   onTableDataChange(event: any) {

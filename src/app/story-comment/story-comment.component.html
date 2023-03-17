@@ -1,15 +1,16 @@
-<div *ngIf="this.commentText">
+<div *ngIf="commentText && commentInfo">
   <div class="container-fluid comment-container">
     <app-data-profile
-      [by]="commentInfo?.by"
-      [timestamp]="commentInfo?.time"
+      [by]="commentInfo.by"
+      [timestamp]="commentInfo.time"
     ></app-data-profile>
-    <div class="comment-text">{{ this.commentText }}</div>
+    <div class="comment-text" [innerHTML]="commentText"></div>
   </div>
   <div *ngIf="commentInfo.hasOwnProperty('kids')">
     <app-story-comments
-      [commentIds]="commentInfo?.kids"
+      [commentIds]="commentInfo.kids"
       [isFetchComment]="isFetchComment"
+      [parentSpinner]="parentSpinner"
     ></app-story-comments>
   </div>
 </div>

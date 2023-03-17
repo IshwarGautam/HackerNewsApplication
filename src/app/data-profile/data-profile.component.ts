@@ -9,6 +9,7 @@ export class DataProfileComponent {
   @Input() timestamp: number = 0;
   @Input() score = 0;
   @Input() by = '';
+  @Input() type = '';
 
   openUrl(url: string) {
     if (url) {
